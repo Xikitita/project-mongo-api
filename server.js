@@ -41,9 +41,9 @@ if (process.env.RESET_DATABASE) {
   seedDatabase();
 }
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
+// Defines the port the app will run on.
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 7080;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
