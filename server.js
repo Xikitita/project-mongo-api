@@ -1,9 +1,9 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import dotenv from "dotenv";
 import expressListEndpoints from "express-list-endpoints";
 import booksData from "./data/books.json";
+import dotenv from "dotenv"
 
 dotenv.config()
 
@@ -11,7 +11,6 @@ const mongoUrl =
   process.env.MONGO_URL || "mongodb://localhost/project-mongo-books";
 mongoose.connect(mongoUrl);
 mongoose.Promise = Promise;
-
 
 const { Schema } = mongoose;
 
@@ -32,7 +31,7 @@ const bookSchema = new Schema({
 const BookModel = mongoose.model("BookModel", bookSchema);
 
 //Seed the database
-//for demo and reminder for future purposes
+//for demo and reminder for future purposes:
 if (process.env.RESET_DATABASE) {
   const seedDatabase = async () => {
     await BookModel.deleteMany();
@@ -46,7 +45,8 @@ if (process.env.RESET_DATABASE) {
 }
 
 // Defines the port the app will run on.
-const port = process.env.PORT || 7080;
+
+const port = process.env.PORT || 8080;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
