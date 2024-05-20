@@ -10,7 +10,7 @@ const mongoUrl =
 mongoose.connect(mongoUrl);
 mongoose.Promise = Promise;
 
-dotenv.config()
+
 
 const { Schema } = mongoose;
 
@@ -32,6 +32,8 @@ const BookModel = mongoose.model("BookModel", bookSchema);
 
 //Seed the database
 //for demo and reminder for future purposes:
+dotenv.config()
+
 if (process.env.RESET_DATABASE) {
   const seedDatabase = async () => {
     await BookModel.deleteMany();
